@@ -10,13 +10,13 @@ import java.util.List;
 @BrowserCallable
 @AnonymousAllowed
 public class BookingService {
-    private final FlightService carRentalService;
+    private final FlightService flightService;
 
-    public BookingService(FlightService carRentalService) {
-        this.carRentalService = carRentalService;
+    public BookingService(FlightService flightService) {
+        this.flightService = flightService;
     }
 
     public List<BookingDetails> getBookings() {
-        return carRentalService.getBookings();
+        return flightService.getBookings();
     }
 }

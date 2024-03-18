@@ -8,25 +8,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class Lang4jTools {
 
-    private final FlightService service;
+    private final FlightService flightService;
 
-    public Lang4jTools(FlightService service) {
-        this.service = service;
+    public Lang4jTools(FlightService flightService) {
+        this.flightService = flightService;
     }
 
     @Tool
     public BookingDetails getBookingDetails(String bookingNumber, String firstName, String lastName) {
-        return service.getBookingDetails(bookingNumber, firstName, lastName);
+        return flightService.getBookingDetails(bookingNumber, firstName, lastName);
     }
 
     @Tool
     public void changeBooking(String bookingNumber, String firstName, String lastName, String date, String from, String to) {
-        service.changeBooking(bookingNumber, firstName, lastName, date, from, to);
+        flightService.changeBooking(bookingNumber, firstName, lastName, date, from, to);
     }
 
     @Tool
     public void cancelBooking(String bookingNumber, String firstName, String lastName) {
-        service.cancelBooking(bookingNumber, firstName, lastName);
+        flightService.cancelBooking(bookingNumber, firstName, lastName);
     }
-
 }

@@ -76,7 +76,7 @@ public class LangChain4jConfig {
     }
 
     @Bean
-    StreamingChatLanguageModel chatLanguageModel(@Value("${openai.api.key}") String apiKey) {
+    StreamingChatLanguageModel chatLanguageModel(@Value("${spring.ai.openai.api-key}") String apiKey) {
         return OpenAiStreamingChatModel.builder()
                 .apiKey(apiKey)
                 .modelName(MODEL_NAME)

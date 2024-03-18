@@ -1,6 +1,5 @@
 package org.vaadin.marcus.client;
 
-
 import org.vaadin.marcus.langchain4j.LangChain4jAssistant;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
 import dev.hilla.BrowserCallable;
@@ -14,7 +13,6 @@ public class AssistantService {
 
     private final LangChain4jAssistant langChain4JAssistant;
     private final SpringAiAssistant springAiAssistant;
-
 
     public AssistantService(LangChain4jAssistant langChain4JAssistant, SpringAiAssistant springAiAssistant) {
         this.langChain4JAssistant = langChain4JAssistant;
@@ -30,7 +28,6 @@ public class AssistantService {
             throw new IllegalArgumentException("Unknown library: " + library);
         }
     }
-
 
     private Flux<String> callLangChain4j(String chatId, String userMessage) {
         Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();

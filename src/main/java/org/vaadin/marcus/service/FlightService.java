@@ -15,7 +15,6 @@ public class FlightService {
 
     public FlightService() {
         db = new BookingData();
-
         initDemoData();
     }
 
@@ -50,8 +49,6 @@ public class FlightService {
         // Reset the database on each start
         db.setCustomers(customers);
         db.setBookings(bookings);
-
-        System.out.println("Demo data initialized");
     }
 
     public List<BookingDetails> getBookings() {

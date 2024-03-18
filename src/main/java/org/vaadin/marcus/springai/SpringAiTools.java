@@ -16,21 +16,17 @@ public class SpringAiTools {
 
     private static final Logger logger = LoggerFactory.getLogger(SpringAiTools.class);
 
-    public record BookingDetailsRequest(String bookingNumber, String firstName, String lastName) {
-    }
+    public record BookingDetailsRequest(String bookingNumber, String firstName, String lastName) {}
 
     public record ChangeBookingDatesRequest(String bookingNumber, String firstName, String lastName, String date,
-                                            String from, String to) {
-    }
+                                            String from, String to) {}
 
-    public record CancelBookingRequest(String bookingNumber, String firstName, String lastName) {
-    }
+    public record CancelBookingRequest(String bookingNumber, String firstName, String lastName) {}
 
+    private final FlightService flightService;
 
-    private final FlightService carRentalService;
-
-    public SpringAiTools(FlightService carRentalService) {
-        this.carRentalService = carRentalService;
+    public SpringAiTools(FlightService flightService) {
+        this.flightService = flightService;
     }
 
     @Bean
@@ -38,7 +34,7 @@ public class SpringAiTools {
     public Function<BookingDetailsRequest, BookingDetails> getBookingDetails() {
         return request -> {
             try {
-                return carRentalService.getBookingDetails(request.bookingNumber(), request.firstName(),
+                return flightService.getBookingDetails(request.bookingNumber(), request.firstName(),
                         request.lastName());
             }
             catch (Exception e) {
@@ -53,7 +49,7 @@ public class SpringAiTools {
     @Description("Change booking dates")
     public Function<ChangeBookingDatesRequest, String> changeBooking() {
         return request -> {
-            carRentalService.changeBooking(request.bookingNumber(), request.firstName(), request.lastName(),
+            flightService.changeBooking(request.bookingNumber(), request.firstName(), request.lastName(),
                     request.date(), request.from(), request.to());
             return "";
         };
@@ -63,7 +59,7 @@ public class SpringAiTools {
     @Description("Cancel booking")
     public Function<CancelBookingRequest, String> cancelBooking() {
         return request -> {
-            carRentalService.cancelBooking(request.bookingNumber(), request.firstName(), request.lastName());
+            flightService.cancelBooking(request.bookingNumber(), request.firstName(), request.lastName());
             return "";
         };
     }

@@ -23,7 +23,6 @@ public class Booking {
         this.bookingClass = bookingClass;
     }
 
-
     public String getBookingNumber() {
         return bookingNumber;
     }
