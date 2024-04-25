@@ -12,14 +12,14 @@
     <properties>
         <java.version>21</java.version>
         <hilla.version>2.5.6</hilla.version>
-        <langchain.version>0.28.0</langchain.version>
+        <langchain.version>0.30.0</langchain.version>
         <spring-ai.version>0.8.1</spring-ai.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.3</version>
+        <version>3.2.5</version>
     </parent>
 
     <repositories>
